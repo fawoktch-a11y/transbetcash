@@ -1,0 +1,666 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#020b18,#061a33,#0a2f55);
+color:#fff;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+  
+    background-color: #f5f5f5;
+    background-image: url('arrière.JPG');
+    /* 3. Centrer l'image */
+  background-position: center;
+
+  /* 4. Adapter l'image pour couvrir toute la zone */
+  background-size: cover;
+
+  /* 5. (Optionnel) Rendre l'image fixe lors du défilement */
+  /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+}
+
+.operation-image{
+  position:absolute;
+  right:1px; /* ajuste si besoin */
+  top:105%;
+  transform:translateY(-50%);
+}
+
+.operation-image img{
+  max-height:650px;
+  width:auto;
+  object-fit:contain;
+}
+
+.operation-image1{
+  position:absolute;
+  left:100px; /* ajuste si besoin */
+  top:97%;
+  transform:translateY(-50%);
+}
+
+.operation-image1 img{
+  max-height:600px;
+  width:auto;
+  object-fit:contain;
+}
+
+    
+
+
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:80px;
+  background:#0b1c2d;
+  z-index:1000;
+}
+
+.header-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:100%;
+}
+
+.logo img{
+  max-width:200px;
+}
+
+/* NAVIGATION */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.nav-link{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:6px;
+  transition:0.3s;
+  border:1px solid transparent;
+}
+
+.nav-link:hover{
+  background:#00b4ff;
+  color:#000;
+}
+
+.nav-link.call{
+  border:1px solid #00b4ff;
+  color:#00b4ff;
+}
+
+.nav-link.call:hover{
+  background:#00b4ff;
+  color:#000;
+}
+
+.header-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:100%;
+}
+
+.logo img{
+max-width:200px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-links a{
+  color:#ffffff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  position:relative;
+  transition:color 0.3s ease;
+}
+
+.nav-links a:hover{
+  color:#00b4ff;
+}
+
+/* Soulignement animé */
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#00b4ff;
+  transition:width 0.3s ease;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* Bouton installer */
+#installBtn{
+  padding:8px 14px;
+  background:#00b4ff;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#000;
+}
+
+.contact-link{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#ffffff;
+  text-decoration:none;
+  font-weight:600;
+  transition:color 0.3s ease;
+}
+
+.contact-link:hover{
+  color:#00ff9c;
+}
+
+.contact-link.call:hover{
+  color:#00b4ff;
+}
+
+.nav-link.whatsapp{
+  padding:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-link.whatsapp img{
+  width:26px;
+  height:26px;
+  display:block;
+  transition:0.3s;
+}
+
+.nav-link.whatsapp:hover img{
+  transform:scale(1.15);
+}
+
+
+
+/* SLIDER */
+
+
+.header-slider{
+  height:35vh;
+  width:150vh;
+  position:relative;
+  overflow:hidden;
+  margin:100px auto 0; /* <-- CENTRAGE HORIZONTAL */
+  border-radius:12px;
+   max-width:1200px;
+  width:100%;
+}
+
+
+
+
+.slide{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;        /* centre l’image sans la couper */
+  object-position:center;   /* centrage parfait */
+  opacity:0;
+  transform:scale(1.05);
+  transition:opacity 1.5s ease, transform 6s linear;
+  filter:brightness(100%);
+}
+
+
+.slide.active{
+opacity:1;
+transform:scale(1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,
+rgba(0,0,0,0.6),
+rgba(0,180,255,0.15),
+rgba(0,0,0,0.7));
+border: 1px solid rgba(0,180,255,0.5);
+border-radius: 12px;
+}
+
+
+/* HERO */
+.hero{
+  position:absolute;
+  top:380px;
+  width:100%;
+  text-align:center;
+  z-index:10;
+  padding-bottom:120px; /* 👈 réserve l’espace pour promo-box */
+}
+
+
+.hero h2{
+  display: inline-block; /* clé pour adapter le cadre au texte */
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  letter-spacing: 1.5px;
+
+  padding: 12px 24px; /* espace interne pour un beau rendu */
+  background: rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,180,255,0.5);
+  border-radius: 12px;
+}
+
+
+
+/* INFO */
+.info-text{
+  margin:12px auto 5px; /* ↓ espace contrôlé */
+  margin-bottom: -15px;
+  padding:15px;
+  max-width:600px;
+  
+}
+
+
+
+
+/* FORM */
+.operation-form{
+  max-width:420px;
+  margin-top:10px;   /* ← rapprochement réel */
+  margin-bottom:30px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:20px;
+  background:rgba(0,0,0,0.45);
+  border-radius:12px;
+  border:1px solid rgba(0,180,255,0.5);
+}
+
+.info-text,
+.operation-form{
+  width:100%;
+  max-width:420px; /* même largeur que le formulaire d’origine */
+  margin-left:auto;
+  margin-right:auto;
+  background:rgba(0,0,0,0.45);
+  border:1px solid rgba(0,180,255,0.5);
+  box-sizing:border-box;
+}
+
+
+.info-text{
+  margin-top:20px;
+  margin-bottom:0;
+  padding:16px 18px;
+  border-bottom:none;
+  border-radius:14px 14px 0 0;
+}
+
+.operation-form{
+  margin-top:0;
+  padding:22px 18px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  border-radius:0 0 14px 14px;
+}
+
+.operation-form::before{
+  content:"";
+  display:block;
+  height:1px;
+  width:100%;
+  margin-bottom:20px;
+  background:linear-gradient(
+    to right,
+    transparent,
+    rgba(0,180,255,0.6),
+    transparent
+  );
+}
+
+
+
+
+
+/* BET LINKS */
+.bet-links a{
+display:inline-block;
+margin:6px;
+padding:10px 18px;
+background:#10263f;
+color:#00b4ff;
+text-decoration:none;
+border-radius:6px;
+transition:0.3s;
+}
+
+.bet-links a:hover{
+  background:#00b4ff;
+  color:#000;
+}
+
+
+.operation-form input,
+.operation-form select,
+.operation-form button{
+width:90%;
+margin:12px auto;
+padding:12px;
+display:block;
+border-radius:8px;
+border:none;
+}
+
+button[type="submit"],
+.btn-submit {
+  background: linear-gradient(135deg, #00b4ff, #0077ff);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.nav-links a{
+    font-size:14px;
+  }
+
+  #installBtn{
+    padding:6px 10px;
+    font-size:13px;
+  }
+
+
+/* CONTENT */
+.bloc{
+  margin-top:800px; /* 👈 repousse PARTNERS sous promo-box */
+  background:#0b1c2d;
+}
+
+
+.services,.partners{
+padding:30px 0;
+text-align:center;
+}
+
+.service-box{
+display:flex;
+justify-content:center;
+gap:20px;
+ margin-top:10px ;
+}
+
+.card{
+background:#10263f;
+padding:10px;
+border-radius:10px;
+width:200px;
+}
+
+/* Styles du conteneur des logos */
+.partners {
+    padding: 20px;
+    text-align: center;
+    margin-top: -20px;
+
+}
+
+
+/* Styles des images des logos */
+.logos-container img {
+    max-width: 100px; /* Largeur maximale pour chaque logo */
+    height: auto; /* Garde les proportions */
+    border-radius:10px;
+    margin-top:10px ;
+    justify-content: center; /* Centre les logos */
+    align-items: center; /* Centre verticalement */
+    gap: 30px; /* Espace entre les logos */
+    flex-wrap: wrap; /* Permet aux logos de passer à la ligne sur petits écrans */
+    
+    }
+
+    .promo-box{
+  margin:20px auto 60px; /* espace en bas */
+  padding:14px 16px 16px;
+  max-width:420px;       /* 👈 même largeur que le formulaire */
+  width:100%;
+  background:linear-gradient(135deg, rgba(0,180,255,0.18), rgba(0,0,0,0.45));
+  border:1px dashed rgba(0,180,255,0.6);
+  border-radius:12px;
+  text-align:center;
+  font-size:14px;
+  line-height:1.45;
+  position:relative;
+  box-shadow:0 8px 20px rgba(0,180,255,0.15);
+  margin:20px auto 40px;
+}
+
+
+.promo-box strong{
+  color:#00d4ff;
+  font-weight:800;
+}
+
+.promo-badge{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#00d4ff,#0094ff);
+  color:#000;
+  padding:4px 12px;
+  font-size:11px;
+  font-weight:bold;
+  border-radius:20px;
+  letter-spacing:1px;
+}
+
+/* TEXTE PROMO */
+.promo-box p{
+  font-size:15px;
+}
+
+/* CODE PROMO */
+.promo-box strong{
+  font-weight:900;         /* gras */
+  font-size:16px;          /* ⬆ taille */
+  color:#00e0ff;
+}
+
+.promo-box strong{
+  background:linear-gradient(135deg,#00e0ff,#00ff9c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+
+/* FOOTER */
+footer{
+background:#06121f;
+padding:20px;
+text-align:center;
+}
+
+/* INSTALL */
+#installBtn{
+padding:10px 18px;
+border:none;
+border-radius:8px;
+background:#00b4ff;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* LOADER */
+#loader{
+position:fixed;
+inset:0;
+background:#020b18;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.spinner{
+width:50px;
+height:50px;
+border:4px solid rgba(255,255,255,.2);
+border-top-color:#00b4ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+to{transform:rotate(360deg);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{
+    gap:10px;
+  }
+
+  .nav-link{
+    font-size:13px;
+    padding:6px 8px;
+  }
+
+  .logo img{
+    max-width:150px;
+  }
+}
+
+
+@media (max-width:768px){
+  .header-slider{
+    width:95%;
+    height:30vh;
+  }
+}
+
+@media (max-width:768px){
+  .nav-links{
+    gap:15px;
+  }
+
+  
+}
+
+/* ===========================
+   CORRECTIONS MOBILE
+=========================== */
+@media (max-width: 768px){
+
+  /* HERO redevient normal */
+  .hero{
+    position: relative;
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  /* Slider moins haut */
+  .header-slider{
+    height: 28vh;
+    margin-top: 90px;
+  }
+
+  /* Formulaire & info */
+  .info-text,
+  .operation-form{
+    max-width: 92%;
+  }
+
+  /* PROMO BOX */
+  .promo-box{
+    position: relative;
+    margin: 25px auto 50px; /* espace clair avec partners */
+    max-width: 92%;
+  }
+
+  /* BONUS badge plus visible */
+  .promo-badge{
+    font-size: 14px;
+    font-weight: 900;
+    padding: 6px 16px;
+  }
+
+  /* Code promo & montant */
+  .promo-box strong{
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  /* SUPPRESSION DU PUSH ARTIFICIEL */
+  .bloc{
+    margin-top: 0;
+  }
+
+  /* Images décoratives OFF sur mobile */
+  .operation-image,
+  .operation-image1{
+    display: none;
+  }
+
+  /* Partners */
+  .partners{
+    margin-top: 20px;
+  }
+
+  /* Logos */
+  .logos-container img{
+    max-width: 80px;
+  }
+}
+
+
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEJOR PARTNER - Votre partenaire fiable</title>
+
+<link rel="stylesheet" href="Mejorpatner.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00b4ff">
+</head>
+
+<body>
+
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<header id="top">
+  <div class="container header-content">
+
+    <div class="logo">
+      <img src="./logo1.PNG" alt="Logo MEJOR PARTNER">
+    </div>
+
+    <nav class="nav-links">
+      <a href="#top" class="nav-link">Accueil</a>
+
+      <a href="https://wa.me/22962003165" target="_blank" class="nav-link whatsapp" aria-label="WhatsApp">
+  <img src="whatsapp.PNG" alt="WhatsApp">
+</a>
+
+      <a href="tel:+2290162003165" class="nav-link call">
+        📞 
+      </a>
+
+      <button id="installBtn" style="display:none;">Installer l’application</button>
+    </nav>
+
+  </div>
+</header>
+
+
+
+
+<div class="header-slider">
+  <img src="logo2.PNG" class="slide active">
+  <img src="logo3.PNG" class="slide">
+  <img src="logo4.PNG" class="slide">
+  <img src="logo5.PNG" class="slide">
+  <img src="logo6.PNG" class="slide">
+  <img src="logo7.PNG" class="slide">
+  <div class="overlay"></div>
+</div>
+
+<section class="hero">
+  <div class="container hero-content">
+
+    <h2>Dépôts & Retraits rapides et sécurisés</h2>
+
+    <div class="bet-links">
+      <div class="logos-container img">
+
+            <img src="1xbet.PNG" alt="Logo Partenaire 1">
+            <img src="melbet.PNG" alt="Logo Partenaire 2">
+            <img src="linebet.PNG" alt="Logo Partenaire 3">
+            <img src="winwinbet.PNG" alt="Logo Partenaire 4">
+            <img src="888starz.PNG" alt="Logo Partenaire 5">
+            
+      </div>
+      
+    </div>
+
+    <div class="info-text">
+      Remplissez le formulaire pour un <span>dépôt</span> ou un <span>retrait</span>
+    </div>
+
+    <div class="operation-form">
+      <h3>Demande de transaction</h3>
+
+      <form id="transactionForm">
+
+        <select id="site" required>
+          <option value="">Sélectionnez le site</option>
+          <option>1XBET</option>
+          <option>MELBET</option>
+          <option>LINEBET</option>
+          <option>888STARZ</option>
+          <option>WINWINBET</option>
+        </select>
+
+        <input type="text" id="compte" placeholder="Identifiant du compte" required>
+
+        <select id="type" required>
+          <option value="">Type d'opération</option>
+          <option>Dépôt</option>
+          <option>Retrait</option>
+        </select>
+
+        <input type="number" id="montant" placeholder="Montant (FCFA)" required>
+
+        <select id="paiement" required>
+          <option value="">Moyen de paiement</option>
+          <option>MTN MoMo</option>
+          <option>Moov Money</option>
+          <option>Celtiis Cash</option>
+        </select>
+
+        <button type="submit">Envoyer la demande</button>
+      </form>
+
+    </div>
+  </div>
+  <!-- TEXTE PROMO JUSTE SOUS LE FORMULAIRE -->
+  <div class="promo-box">
+    <span class="promo-badge">BONUS</span>
+    <p>
+      Inscris-toi avec le code promo 
+      <strong>RIA229</strong> et profite jusqu’à 
+      <strong>100&nbsp;$</strong> de bonus sur ton premier dépôt.
+    </p>
+  </div>
+</div>
+</section>
+
+</div>
+
+
+
+<div class="operation-image">
+  <img src="form-image.PNG" alt="Illustration transaction">
+</div>
+
+<div class="operation-image1">
+  <img src="form-image1.PNG"alt="Illustration transaction">
+</div>
+
+
+<div class="bloc">
+
+    
+   <section class="partners">
+
+     <h2>Nos Partenaires</h2>
+
+        <div class="logos-container img">
+
+            <img src="mtn.PNG" alt="Logo Partenaire 6">
+            <img src="moov.PNG" alt="Logo Partenaire 7">
+            <img src="celtiis.PNG" alt="Logo Partenaire 8">
+
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+  <p>© 2026 TransBetCash</p>
+</footer>
+
+</div>
+
+<!-- JS -->
+<script>
+/* Loader */
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+});
+
+/* Slider */
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 4000);
+
+/* WhatsApp */
+document.getElementById("transactionForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const message =
+`MEJOR PARTNER
+Site : ${site.value}
+Compte : ${compte.value}
+Opération : ${type.value}
+Montant : ${montant.value} FCFA
+Paiement : ${paiement.value}`;
+
+  window.open("https://wa.me/22962003165?text=" + encodeURIComponent(message));
+});
+
+/* PWA */
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = "block";
+});
+
+installBtn.addEventListener("click", () => {
+  deferredPrompt.prompt();
+});
+</script>
+
+</body>
+</html>
