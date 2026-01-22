@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>TransCashBet - Votre partenaire fiable</title>
-
 <link rel="stylesheet" href="Mejorpatner.css">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#00b4ff">
+
 </head>
 
 <body>
@@ -56,16 +57,28 @@
 <section class="hero">
   <div class="container hero-content">
 
-    <h2>Dépôts & Retraits rapides et sécurisés</h2>
+    <h2>Dépôts & Retraits ultra rapide et sans frais </h2>
 
     <div class="bet-links">
       <div class="logos-container img">
-
+   <a href="https://1xbet.com/fr/mobile" target="_blank">
             <img src="1xbet.png" alt="Logo Partenaire 1">
+            </a>
+            <a href="https://1xbet.com/fr/mobile" target="_blank">
             <img src="melbet.png" alt="Logo Partenaire 2">
+             </a>
+
+            <a href="https://winwin-76508.bar/fr/mobile" target="_blank">
             <img src="linebet.png" alt="Logo Partenaire 3">
+             </a>
+
+            <a href="https://1xbet.com/fr/mobile" target="_blank">
             <img src="winwinbet.png" alt="Logo Partenaire 4">
+             </a>
+
+            <a href="https://888starz.bet/fr/mobile" target="_blank">
             <img src="888starz.png" alt="Logo Partenaire 5">
+             </a>
             
       </div>
       
@@ -109,27 +122,33 @@
         <button type="submit">Envoyer la demande</button>
       </form>
 
+      <div id="whatsapp-feedback" class="whatsapp-feedback">
+  Message WhatsApp prêt à être envoyé ✔
+</div>
+<div id="whatsapp-feedback" style="display:none; margin-top:12px; color:#00ff9c; font-weight:bold;">
+  ✔ Redirection vers WhatsApp...
+</div>
+
+
+      
+
     </div>
   </div>
-  <!-- TEXTE PROMO JUSTE SOUS LE FORMULAIRE -->
-  <div class="promo-box">
-    <span class="promo-badge">BONUS</span>
-    <p>
-      Inscris-toi avec le code promo 
-      <strong>RIA229</strong> et profite jusqu’à 
-      <strong>100&nbsp;$</strong> de bonus sur ton premier dépôt.
-    </p>
-  </div>
-</div>
+  
 </section>
 
 </div>
 
 
+<div class="promo-image">
+  <img src="Ria229.png" alt="Offre limitée">
+</div>
 
 <div class="operation-image">
   <img src="form-image.png" alt="Illustration transaction">
 </div>
+
+
 
 <div class="operation-image1">
   <img src="form-image1.png"alt="Illustration transaction">
@@ -165,17 +184,47 @@
 <script>
 /* Loader */
 window.addEventListener("load", () => {
-  document.getElementById("loader").style.display = "none";
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 500);
 });
 
-/* Slider */
+// Sécurité : au cas où une image bloque
+setTimeout(() => {
+  const loader = document.getElementById("loader");
+  if (loader) loader.style.display = "none";
+}, 4000);
+
+
+/* Slider optimisé */
 const slides = document.querySelectorAll(".slide");
 let index = 0;
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 4000);
+let sliderInterval;
+
+function startSlider(){
+  sliderInterval = setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 4000);
+}
+
+function stopSlider(){
+  clearInterval(sliderInterval);
+}
+
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden){
+    stopSlider();
+  }else{
+    startSlider();
+  }
+});
+
+startSlider();
+
 
 /* WhatsApp */
 document.getElementById("transactionForm").addEventListener("submit", function(e){
@@ -189,8 +238,19 @@ Opération : ${type.value}
 Montant : ${montant.value} FCFA
 Paiement : ${paiement.value}`;
 
-  window.open("https://wa.me/22962003165?text=" + encodeURIComponent(message));
+// ✅ FEEDBACK VISUEL (SANS CRASH)
+  const feedback = document.getElementById("whatsapp-feedback");
+  if (feedback) feedback.style.display = "block";
+
+  setTimeout(() => {
+    window.open(
+      "https://wa.me/22962003165?text=" + encodeURIComponent(message),
+      "_blank"
+    );
+  }, 600);
 });
+
+  
 
 /* PWA */
 let deferredPrompt;
