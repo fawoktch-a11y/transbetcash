@@ -9,6 +9,17 @@ body{
 background:linear-gradient(135deg,#020b18,#061a33,#0a2f55);
 color:#fff;
 overflow-x:hidden;
+ background-color: #f5f5f5;
+    background-image: url('arrière.jpg');
+    /* 3. Centrer l'image */
+  background-position: center;
+
+  /* 4. Adapter l'image pour couvrir toute la zone */
+  background-size: cover;
+
+  /* 5. (Optionnel) Rendre l'image fixe lors du défilement */
+  /* background-attachment: fixed; */
+    background-repeat: no-repeat;
 }
 
 .container{
@@ -23,25 +34,11 @@ margin:auto;
     font-family: Arial, sans-serif;
 }
 
-body {
-  
-    background-color: #f5f5f5;
-    background-image: url('arrière.jpg');
-    /* 3. Centrer l'image */
-  background-position: center;
-
-  /* 4. Adapter l'image pour couvrir toute la zone */
-  background-size: cover;
-
-  /* 5. (Optionnel) Rendre l'image fixe lors du défilement */
-  /* background-attachment: fixed; */
-    background-repeat: no-repeat;
-}
 
 .operation-image{
   position:absolute;
   right:15px; /* ajuste si besoin */
-  top:118%;
+  top:100%;
   transform:translateY(-50%);
 }
 
@@ -64,11 +61,9 @@ body {
   object-fit:contain;
 }
 
-    
-
-
 
 /* HEADER */
+
 header{
   position:fixed;
   top:0;
@@ -218,8 +213,6 @@ max-width:200px;
 
 
 /* SLIDER */
-
-
 .header-slider{
   height:35vh;
   width:150vh;
@@ -230,8 +223,6 @@ max-width:200px;
    max-width:1200px;
   width:100%;
 }
-
-
 
 
 .slide{
@@ -360,27 +351,6 @@ border-radius: 12px;
 }
 
 
-
-
-
-/* BET LINKS */
-.bet-links a{
-display:inline-block;
-margin:6px;
-padding:10px 18px;
-background:#10263f;
-color:#00b4ff;
-text-decoration:none;
-border-radius:6px;
-transition:0.3s;
-}
-
-.bet-links a:hover{
-  background:#00b4ff;
-  color:#000;
-}
-
-
 .operation-form input,
 .operation-form select,
 .operation-form button{
@@ -418,10 +388,76 @@ button[type="submit"],
     font-size:13px;
   }
 
+  .bet-links {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 650px;
+  
+}
+
+.bet-links a{
+
+display:inline-block;
+padding:8px 8px;
+background:#10263f;
+text-decoration:none;
+border-radius:6px;
+transition:0.3s;
+}
+
+.bet-links a:hover{
+  background:#00b4ff;
+  color:#000;
+}
+
+.logos-container a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.logos-container img {
+  pointer-events: auto;
+}
+
+
+.download-hint{
+  margin-bottom:12px;
+  text-align:center;
+  font-size:14px;
+  font-weight:600;
+  color:#00d4ff;
+  letter-spacing:0.5px;
+  animation:pulseText 1.5s infinite;
+}
+
+@keyframes pulseText{
+  0%{opacity:0.6;}
+  50%{opacity:1;}
+  100%{opacity:0.6;}
+}
+
+/* REND LES LOGOS CLIQUABLES */
+.logos-container a,
+.logos-container img {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* PAS DE COUCHE AU-DESSUS */
+.logos-container {
+  position: relative;
+  z-index: 20;
+}
+
+
+
+
+
 
 /* CONTENT */
 .bloc{
-  margin-top:750px; /* 👈 repousse PARTNERS sous promo-box */
+  margin-top:50px; /* 👈 repousse PARTNERS sous promo-box */
   background:#0b1c2d;
 }
 
@@ -563,6 +599,17 @@ animation:spin 1s linear infinite;
 to{transform:rotate(360deg);}
 }
 
+
+.seo-text{
+  max-width:700px;
+  margin:30px auto;
+  font-size:13px;
+  line-height:1.6;
+  opacity:0.85;
+  text-align:center;
+}
+
+
 .whatsapp-feedback{
   display:none;
   margin-top:12px;
@@ -583,8 +630,8 @@ to{transform:rotate(360deg);}
 /* IMAGE CODE PROMO */
 .promo-image{
   position:absolute;
-  right:8px;            /* alignée avec form-image */
-  top:50%;               /* juste au-dessus */
+  right:180px;            /* alignée avec form-image */
+  top:110%;               /* juste au-dessus */
   transform:rotate(6deg); /* légère rotation gauche → droite */
   z-index:5;
 }
@@ -807,6 +854,28 @@ to{transform:rotate(360deg);}
   /* Logos */
   .logos-container img{
     max-width: 80px;
+  }
+}
+/* MOBILE : garder seulement operation-image */
+@media (max-width: 768px) {
+  .operation-image1 {
+    display: none;
+  }
+
+  .operation-image {
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    transform: none;
+    margin: 30px auto 0;
+    text-align: center;
+  }
+
+  .operation-image img {
+    max-width: 90%;
+    height: auto;
   }
 }
 
