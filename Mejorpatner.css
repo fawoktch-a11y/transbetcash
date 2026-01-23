@@ -632,8 +632,8 @@ to{transform:rotate(360deg);}
 /* IMAGE CODE PROMO */
 .promo-image{
   position:absolute;
-  right:180px;            /* alignée avec form-image */
-  top:105%;               /* juste au-dessus */
+  right:115px;            /* alignée avec form-image */
+  top:125%;               /* juste au-dessus */
   transform:rotate(6deg); /* légère rotation gauche → droite */
   z-index:5;
 }
@@ -677,10 +677,69 @@ to{transform:rotate(360deg);}
   from{opacity:0; transform:translateY(6px);}
   to{opacity:1; transform:translateY(0);}
 }
+.promo-offer {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  .background: linear-gradient(135deg, #1e90ff, #0051ff);
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 81, 255, 0.35);
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.promo-offer .amount {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffd700;
+}
+
+.promo-offer .code {
+
+  font-weight: bold;
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffd700;
+}
 
 
 
 /* MOBILE */
+
+@media(max-width:768px)
+{
+  .promo-offer {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  .background: linear-gradient(135deg, #1e90ff, #0051ff);
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 81, 255, 0.35);
+  max-width: 250px;
+  margin: -30px auto;
+}
+
+.promo-offer .amount {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffd700;
+}
+
+.promo-offer .code {
+
+  font-weight: bold;
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffd700;
+}
+  }
+
 @media(max-width:768px){
   .nav-links{
     gap:10px;
@@ -723,6 +782,8 @@ to{transform:rotate(360deg);}
     top: 0;
     padding-top: 20px;
     padding-bottom: 30px;
+    
+    
   }
 
   /* Slider moins haut */
@@ -842,7 +903,7 @@ to{transform:rotate(360deg);}
   }
 
   .promo-image img{
-    max-width:200px;
+    max-width:350px;
   }
 }
 
@@ -898,12 +959,14 @@ to{transform:rotate(360deg);}
   .bet-links {
     position: relative;
     width: 100%;
-    margin: 20px auto;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+   
+
   }
 
   .bet-links img {
@@ -952,7 +1015,7 @@ to{transform:rotate(360deg);}
 }
 @media (max-width: 768px){
   .bet-links{
-    margin-top: 20px;
+    margin-top: -30px;
     text-align: center;
   }
 }
