@@ -388,13 +388,15 @@ button[type="submit"],
     font-size:13px;
   }
 
-  .bet-links {
+  /* BET LINKS - BASE (PC & MOBILE) */
+.bet-links{
+  width: 100%;
   display: flex;
   justify-content: center;
-
-  margin-top: 650px;
-  
+  margin: 40px auto 0;
+  position: relative;
 }
+
 
 .bet-links a{
 
@@ -631,7 +633,7 @@ to{transform:rotate(360deg);}
 .promo-image{
   position:absolute;
   right:180px;            /* alignée avec form-image */
-  top:110%;               /* juste au-dessus */
+  top:105%;               /* juste au-dessus */
   transform:rotate(6deg); /* légère rotation gauche → droite */
   z-index:5;
 }
@@ -698,7 +700,7 @@ to{transform:rotate(360deg);}
 @media (max-width:768px){
   .header-slider{
     width:95%;
-    height:30vh;
+    height:15vh;
   }
 }
 
@@ -725,7 +727,7 @@ to{transform:rotate(360deg);}
 
   /* Slider moins haut */
   .header-slider{
-    height: 28vh;
+    height: 15vh;
     margin-top: 90px;
   }
 
@@ -939,3 +941,47 @@ to{transform:rotate(360deg);}
 }
 
 
+/* CORRECTION PC SEULEMENT */
+@media (min-width: 769px) {
+  .bet-links {
+    margin-top: 40px;     /* espace sous hero */
+    position: relative;  /* annule tout flottement */
+    top: auto;
+    left: auto;
+  }
+}
+@media (max-width: 768px){
+  .bet-links{
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+/* ESPACE RÉEL APRÈS HERO (PC) */
+@media (min-width: 769px){
+  .hero{
+    margin-bottom: 160px; /* réserve la place manquante */
+  }
+}
+@media (min-width: 769px){
+  .bet-links{
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+/* CORRECTION STRUCTURE PC */
+
+@media (min-width: 769px){
+  .hero{
+    position: relative;
+    top: 60px;
+    margin-top: 0px;   /* ajuste visuellement */
+    padding-bottom: 160px;
+  }
+}
+@media (min-width: 769px){
+  .bet-links{
+    margin-top: -250px;
+    justify-content: center;
+  }
+}
