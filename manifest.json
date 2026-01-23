@@ -1,7 +1,7 @@
 {
-  "name": "MEJOR PARTNER",
-  "short_name": "MEJOR",
-  "start_url": ".",
+  "name": "TransBetCash",
+  "short_name": "TransBetCash",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#020b18",
   "theme_color": "#00b4ff",
