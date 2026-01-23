@@ -932,5 +932,10 @@ to{transform:rotate(360deg);}
   }
 }
 
+@media (min-width: 769px) {
+  .bet-links {
+    margin-top: 0; /* aucune modification PC */
+  }
+}
 
 
